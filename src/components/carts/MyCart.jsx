@@ -27,11 +27,6 @@ function MyCart({ handleClose, show, fetchModal, fetchModal2 }) {
     fetchData();
   }, [fetch, fetchModal, fetchModal2]);
 
-  // const total = cart.reduce((acc, curr) => {
-  //   let res = acc + curr.Product.price * curr.amount;
-  //   return res;
-  // }, 0);
-
   const handDelete = async (id) => {
     await axios.delete(`/cart/deleteCart/${id}`);
     console.log("deleted");

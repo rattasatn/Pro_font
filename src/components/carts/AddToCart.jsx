@@ -96,7 +96,7 @@ function AddToCart() {
               }}
             ></i>
           </div>
-          s
+
           <button onClick={() => handleOnClick()} className="btn btn-dark mt-3">
             ADD TO CART
           </button>

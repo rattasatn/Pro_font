@@ -2,23 +2,11 @@ import React, { useEffect, useState } from "react";
 import defaultProductPic from "../../images/chanel.webp";
 import axios from "../../config/axios";
 import { Link, useParams } from "react-router-dom";
-import EditProduct from "./EditProduct";
 
 function AllProductCard() {
   const [product, setProduct] = useState([]);
-  const [productPic, setProductPic] = useState("");
-  const [productName, setProductName] = useState("");
-  const [price, setPrice] = useState("");
-  const [brand, setBrand] = useState("");
 
-  const [quantity, setQuantity] = useState("");
   const [fetch, setFetch] = useState(false);
-  const [edit, setEdit] = useState(false);
-  const [data, setData] = useState({});
-  const { id } = useParams();
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,18 +17,18 @@ function AllProductCard() {
     fetchData();
   }, []);
 
-  const handleOnClick = async (id) => {
-    try {
-      console.log(id);
-      const res = await axios.get(`/product/productId/${id}`);
-      console.log(res.data.product.productName);
-      handleShow();
-      console.log(res.data);
-      setData(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const handleOnClick = async (id) => {
+  //   try {
+  //     console.log(id);
+  //     const res = await axios.get(`/product/productId/${id}`);
+  //     console.log(res.data.product.productName);
+  //     handleShow();
+  //     console.log(res.data);
+  //     setData(res.data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   //
 
