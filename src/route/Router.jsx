@@ -12,6 +12,10 @@ import MyAccount from "../page/MyAccount";
 import AddCart from "../page/AddCart";
 import AddProduct from "../components/product/AddProduct";
 import AllProduct from "../components/product/AllProduct";
+import Order from "../page/Order";
+import Sipping from "../page/Sipping";
+import OrderSuccess from "../page/OrderSuccess";
+import EditProduct from "../components/product/EditProduct";
 
 function Router() {
   return (
@@ -24,10 +28,15 @@ function Router() {
         <Route path="/MyAccount" element={<MyAccount />} />
 
         <Route path="/AddCart" element={<AddCart />} />
+        <Route path="/AddCart/:id" element={<AddCart />} />
+        <Route path="/Order" element={<Order />} />
+        <Route path="/OrderSuccess" element={<OrderSuccess />} />
+        <Route path="/Sipping" element={<Sipping />} />
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/AddProduct" element={<AddProduct />} />
       <Route path="/AllProduct" element={<AllProduct />} />
+      <Route path="/AllProduct/:id" element={<EditProduct />} />
       <Route path="/createAccount" element={<CreateAccount />} />
     </Routes>
   );

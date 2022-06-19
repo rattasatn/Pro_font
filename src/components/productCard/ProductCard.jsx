@@ -19,7 +19,7 @@ function ProductCard(props) {
             ></div>
             <p className="fs-6 text  mt-3"> {props.productName}</p>
             <h6>฿ {props.price}</h6>
-            <Link to="/AddCart">
+            <Link to={props.to}>
               <i className="bi bi-bag ms-2  fs-3"></i>
             </Link>
           </div>

@@ -1,15 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import "./index.css";
+import "./styles.scss";
+import "bootstrap-icons/font/bootstrap-icons.css";
+// import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import "bootstrap";
+// import "bootstrap";
 import AuthContextProvider from "./context/AuthContext";
 import ErrorContextProvider from "./context/ErrorContext";
+import CartContextProvider from "./context/CartContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,7 +19,9 @@ root.render(
     <BrowserRouter>
       <ErrorContextProvider>
         <AuthContextProvider>
-          <App />
+          <CartContextProvider>
+            <App />
+          </CartContextProvider>
         </AuthContextProvider>
       </ErrorContextProvider>
     </BrowserRouter>

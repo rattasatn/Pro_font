@@ -27,6 +27,7 @@ function ForMen() {
             productName={el.productName}
             price={el.price}
             brand={el.brand}
+            to={`/AddCart/${el.id}`}
           />
         ))}
       </div>

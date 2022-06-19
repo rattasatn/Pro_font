@@ -7,7 +7,12 @@ import { useAuth } from "../context/AuthContext";
 function Header() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [fetchModal2, setFetchModal2] = useState(false);
+  const handleShow = () => {
+    setFetchModal2((p) => !p);
+    setShow(true);
+  };
+
   const { customer, logout } = useAuth();
 
   return (
@@ -46,26 +51,28 @@ function Header() {
           </li>
           <li className="nav-item ">
             {customer ? (
-              <button
-                className="nav-link btn btn-primary  d-flex justify-content-end align-items-center "
-                onClick={logout}
-              >
-                SIGN OUT
-                <i className="bi bi-person ms-2 fs-3"></i>
-                <li className="nav-item">
-                  <button
-                    className="nav-link btn btn-primary d-flex justify-content-end align-items-center "
-                    onClick={handleShow}
-                  >
-                    CART <i className="bi bi-bag ms-2  fs-3"></i>
-                  </button>
-                </li>
+              <div className="d-flex justify-content-end align-items-center">
+                <button
+                  className="nav-link btn btn-primary d-flex justify-content-end align-items-center  "
+                  onClick={logout}
+                >
+                  SIGN OUT
+                  <i className="bi bi-person ms-2 fs-3"></i>
+                </button>
+                <button
+                  className="nav-link btn btn-primary d-flex justify-content-end align-items-center "
+                  onClick={handleShow}
+                >
+                  CART <i className="bi bi-bag ms-2  fs-3"></i>
+                </button>
+
                 <MyCart
                   handleClose={handleClose}
                   handleShow={handleShow}
+                  fetchModal2={fetchModal2}
                   show={show}
                 />
-              </button>
+              </div>
             ) : (
               <Link
                 className="nav-link btn btn-primary  d-flex justify-content-end align-items-center"
@@ -77,19 +84,6 @@ function Header() {
             )}
           </li>
         </ul>
-      </div>
-      <div className="d-flex justify-content-end mt-4">
-        <input
-          type="text"
-          className="form-control rounded-pill me-3 border-dark"
-          id="search"
-          style={{ width: "250px", height: "25px" }}
-        />
-        <i className="bi bi-search fs-5 me-3"></i>
-        <Link
-          className="bi bi-heart-fill fs-5 text-danger me-5"
-          to="Favorite"
-        ></Link>
       </div>
     </div>
   );

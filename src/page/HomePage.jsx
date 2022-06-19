@@ -13,7 +13,7 @@ function HomePage() {
     };
     fetchData();
   }, []);
-
+  console.log(products);
   return (
     <div className="mx-5 mb-5">
       <Carousel />
@@ -21,10 +21,12 @@ function HomePage() {
       <div className="d-flex justify-content-evenly  flex-wrap ">
         {products.map((el) => (
           <ProductCard
+            key={el.id}
             productPic={el.productPic}
             productName={el.productName}
             price={el.price}
             brand={el.brand}
+            to={`/AddCart/${el.id}`}
           />
         ))}
       </div>

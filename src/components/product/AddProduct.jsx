@@ -1,7 +1,7 @@
 import axios from "../../config/axios";
 import React, { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function AddProduct() {
   const [productName, setProductName] = useState("");
@@ -125,9 +125,12 @@ function AddProduct() {
             </div>
           </div>
           <div className="d-flex justify-content-end">
-            <button type="submit" className="btn btn-dark text-white   ">
+            <button type="submit" className="btn btn-dark text-white me-3  ">
               ADD PRODUCT
             </button>
+            <Link className="btn btn-dark text-white" to="/AllProduct">
+              ALL PRODUCT
+            </Link>
           </div>
           <div className="d-flex justify-content-end mt-3">
             <button onClick={logout} className="btn btn-dark text-white   ">
