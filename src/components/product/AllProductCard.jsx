@@ -1,12 +1,26 @@
 import React, { useEffect, useState } from "react";
 import defaultProductPic from "../../images/chanel.webp";
 import axios from "../../config/axios";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 
-function AllProductCard() {
+function AllProductCard({ refreshId }) {
   const [product, setProduct] = useState([]);
 
   const [fetch, setFetch] = useState(false);
+  const location = useLocation();
+  // const [refresh,setRresh] = useState(false);
+
+  // location.state && setFetch(!fetch);
+
+  // useEffect(() => {
+  //   console.log(location.state);
+  //   const fetchData = async () => {
+  //     const res = await axios.get("/product");
+  //     console.log(res.data);
+  //     setProduct(res.data.products);
+  //   };
+  //   fetchData();
+  // }, [location.state]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,7 +29,7 @@ function AllProductCard() {
       setProduct(res.data.products);
     };
     fetchData();
-  }, []);
+  }, [fetch, refreshId]);
 
   // const handleOnClick = async (id) => {
   //   try {
@@ -48,6 +62,7 @@ function AllProductCard() {
         />
 
         <div className="w-50  ms-5">
+          <h3>{refreshId}</h3>
           <p>BRAND :{el.brand}</p>
           <p>PRODUCT NAME :{el.productName}</p>
           <p>PRICE :{el.price}</p>

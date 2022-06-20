@@ -23,7 +23,7 @@ function AddProduct() {
       formData.append("brand", brand);
       formData.append("quantity", quantity);
       formData.append("forGender", forGender);
-      navigate("/AllProduct");
+      navigate("/AllProduct", { state: { refresh: Math.random() } });
 
       await axios.post("/admin", formData);
     } catch (err) {
@@ -51,11 +51,7 @@ function AddProduct() {
             />
           </div>
         </div>
-        <form
-          className="mt-5  m-auto"
-          style={{ width: "600px" }}
-          onSubmit={handleSubmit}
-        >
+        <form className="mt-5  m-auto" style={{ width: "600px" }}>
           <div className="mb-3 row">
             <label htmlFor="firstName" className="col-4 col-form-label fw-bold">
               PRODUCT NAME :
@@ -125,7 +121,11 @@ function AddProduct() {
             </div>
           </div>
           <div className="d-flex justify-content-end">
-            <button type="submit" className="btn btn-dark text-white me-3  ">
+            <button
+              onClick={handleSubmit}
+              type="button"
+              className="btn btn-dark text-white me-3  "
+            >
               ADD PRODUCT
             </button>
             <Link className="btn btn-dark text-white" to="/AllProduct">

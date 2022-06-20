@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AllProductCard from "./AllProductCard";
 import { useAuth } from "../../context/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function AllProduct() {
   const { logout } = useAuth();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state) {
+      console.log(location.state);
+    }
+  }, [location.state]);
 
   return (
     <div>
@@ -14,7 +21,7 @@ function AllProduct() {
           className="bg-primary m-auto mt-3  "
           style={{ width: "300px", height: "1px" }}
         ></div>
-        <AllProductCard />
+        <AllProductCard refreshId={location.state.refresh} />
       </div>
       <div className="d-flex justify-content-end mx-3 my-5">
         <Link className="btn btn-dark " to="/AddProduct">

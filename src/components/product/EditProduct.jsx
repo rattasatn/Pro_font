@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "../../config/axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function EditProduct() {
   const { id } = useParams();
@@ -102,7 +102,11 @@ function EditProduct() {
             </div>
           </div>
           <div className="d-flex justify-content-end">
-            <button className="btn btn-dark mt-3 " onClick={handleEdit}>
+            <button
+              type="button"
+              className="btn btn-dark mt-3 "
+              onClick={handleEdit}
+            >
               SAVE
             </button>
           </div>

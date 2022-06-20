@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+
 import axios from "../config/axios";
 
 const CartContext = createContext();
