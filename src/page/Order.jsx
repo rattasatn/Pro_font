@@ -46,7 +46,7 @@ function Order() {
         return acc;
       }, []);
       await axios.post("/order/orderItem/", body);
-
+      await axios.delete("cart/deleteCartCustomer");
       navigate("/OrderSuccess");
     } catch (err) {
       console.log(err);

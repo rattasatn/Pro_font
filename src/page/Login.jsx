@@ -50,7 +50,7 @@ function Login() {
               type="password"
               className="form-control input"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              // onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="d-flex justify-content-between">

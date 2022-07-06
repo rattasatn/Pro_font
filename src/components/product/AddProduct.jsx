@@ -23,9 +23,10 @@ function AddProduct() {
       formData.append("brand", brand);
       formData.append("quantity", quantity);
       formData.append("forGender", forGender);
-      navigate("/AllProduct", { state: { refresh: Math.random() } });
+      // navigate("/AllProduct", { state: { refresh: Math.random() } });
 
       await axios.post("/admin", formData);
+      navigate("/AllProduct");
     } catch (err) {
       console.log(err);
     }
