@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="bg-dark">
+    <div className="bg-dark position-absolute bottom-0 w-100">
       <div className="d-flex justify-content-start ms-5 ">
         <div>
           <h3 className="text-white ">SHIPPING</h3>
